@@ -20,34 +20,72 @@ body {
     background: radial-gradient(circle at top, var(--accent) 0%, var(--bg) 55%);
     color: var(--text);
     font-family: "Inter", system-ui, sans-serif;
+    font-size: 14px;
     min-height: 100vh;
     display: grid;
     place-items: center;
-    padding: 2rem 1rem;
+    padding: 0.75rem 0.5rem;
+}
+
+@media (min-width: 640px) {
+    body {
+        font-size: 16px;
+        padding: 2rem 1rem;
+    }
 }
 
 .app {
-    width: min(720px, 100%);
+    width: 100%;
+    max-width: 720px;
     display: grid;
-    gap: 1rem;
+    gap: 0.5rem;
+    height: 100vh;
+    max-height: 100vh;
+}
+
+@media (min-width: 640px) {
+    .app {
+        gap: 1rem;
+        height: auto;
+        max-height: none;
+    }
 }
 
 .chat-window {
     background: rgba(15, 23, 42, 0.65);
     backdrop-filter: blur(16px);
-    border-radius: 1rem;
-    padding: 1.5rem;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
     display: grid;
-    gap: 1rem;
-    max-height: 65vh;
+    gap: 0.5rem;
+    flex: 1;
     overflow-y: auto;
     box-shadow: 0 24px 48px rgba(15, 23, 42, 0.45);
+    min-height: 0;
+}
+
+@media (min-width: 640px) {
+    .chat-window {
+        border-radius: 1rem;
+        padding: 1.5rem;
+        gap: 1rem;
+        max-height: 65vh;
+    }
 }
 
 .message {
     display: grid;
-    gap: 0.35rem;
-    line-height: 1.55;
+    gap: 0.25rem;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+@media (min-width: 640px) {
+    .message {
+        gap: 0.35rem;
+        line-height: 1.55;
+        font-size: 1rem;
+    }
 }
 
 .message strong {
@@ -71,31 +109,59 @@ body {
 }
 
 .bubble {
-    padding: 0.85rem 1rem;
-    border-radius: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.6rem;
     white-space: pre-wrap;
+    word-break: break-word;
+}
+
+@media (min-width: 640px) {
+    .bubble {
+        padding: 0.85rem 1rem;
+        border-radius: 0.85rem;
+    }
 }
 
 .chat-form {
     display: grid;
-    gap: 0.75rem;
+    gap: 0.5rem;
     grid-template-columns: 1fr auto;
-    align-items: center;
+    align-items: flex-end;
     background: rgba(15, 23, 42, 0.72);
-    border-radius: 1rem;
-    padding: 1rem 1.25rem;
+    border-radius: 0.75rem;
+    padding: 0.75rem;
     box-shadow: 0 16px 32px rgba(15, 23, 42, 0.35);
+    flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+    .chat-form {
+        gap: 0.75rem;
+        border-radius: 1rem;
+        padding: 1rem 1.25rem;
+        align-items: center;
+    }
 }
 
 .chat-form textarea {
     resize: none;
-    min-height: 68px;
+    min-height: 40px;
+    max-height: 120px;
     border: none;
     outline: none;
     background: none;
     color: inherit;
     font: inherit;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+@media (min-width: 640px) {
+    .chat-form textarea {
+        min-height: 68px;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
 }
 
 .chat-form button {
@@ -104,9 +170,19 @@ body {
     font-weight: 600;
     border: none;
     border-radius: 999px;
-    padding: 0.75rem 1.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
     cursor: pointer;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+@media (min-width: 640px) {
+    .chat-form button {
+        padding: 0.75rem 1.5rem;
+        font-size: 1rem;
+    }
 }
 
 .chat-form button:hover {
@@ -125,12 +201,21 @@ body {
     background: #0a0e27;
     border: 1px solid #1e293b;
     border-radius: 0.5rem;
-    padding: 1rem;
+    padding: 0.75rem;
     overflow-x: auto;
-    margin: 0.5rem 0;
+    margin: 0.25rem 0;
     font-family: "Fira Code", "Courier New", monospace;
-    font-size: 0.875rem;
-    line-height: 1.5;
+    font-size: 0.7rem;
+    line-height: 1.3;
+}
+
+@media (min-width: 640px) {
+    .code-block {
+        padding: 1rem;
+        margin: 0.5rem 0;
+        font-size: 0.875rem;
+        line-height: 1.5;
+    }
 }
 
 .code-block code {
