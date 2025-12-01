@@ -1,0 +1,10 @@
+[build]
+  command = "npm run build"
+  publish = "public"
+
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+[dev]
+  environment = { GEMINI_API_KEY = "AIzaSyATGhpaYa41P3x7cOj2TivLeoPo52ntCts" }

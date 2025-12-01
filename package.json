@@ -1,0 +1,15 @@
+{
+  "name": "gemini-chatbot",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npm run copy",
+    "copy": "xcopy public dist /E /I /Y",
+    "start": "netlify dev"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.1"
+  },
+  "dependencies": {
+    "@google/genai": "^1.30.0"
+  }
+}
